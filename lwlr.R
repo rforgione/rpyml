@@ -1,3 +1,6 @@
+source("sigmoid.R")
+source("repmat.R")
+
 lwlr <- function (X_train, y_train, x, tau) {
     
     # initialize variables
@@ -20,15 +23,4 @@ lwlr <- function (X_train, y_train, x, tau) {
     pred <- as.double(t(theta) %*% x > 0)
 }
 
-repmat <- function(X, m, n) {
-    ##R equivalent of repmat (matlab)
-    mx <- dim(X)[1]
-    nx <- dim(X)[2]
-    
-    matrix(t(matrix(X, mx, nx*n)), mx*m, nx*n, byrow=T)
-}
 
-sigmoid <- function(z) {
-    sig <- 1/(1+exp(-z))
-    sig
-}
