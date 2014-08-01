@@ -1,3 +1,5 @@
+source("lwlr.R")
+
 plot_lwlr <- function(X, y, tau, res) {
     x <- matrix(0, 2, 1)
     pred <- matrix(0, res, res)
@@ -10,7 +12,7 @@ plot_lwlr <- function(X, y, tau, res) {
     }
 
 plot.new()
-image(pred, col=c('blue', 'red'), xlab="X1", ylab="X2", xaxt='n', yaxt='n')
+image(pred, col=c('blue', 'red'), xlab="X1", ylab="X2", xaxt='n', yaxt='n', main="LWLR: tau = .01")
 par(new=T)
 plot((res/2)*(1+X[y==0,1])+0.5, (res/2)*(1+X[y==0,2])+0.5, xlab="", ylab="", xaxt='n', yaxt='n', xlim=c(1,res), ylim=c(1,res))
 par(new=T)
